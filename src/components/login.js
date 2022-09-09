@@ -1,32 +1,32 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-
+import  {useNavigate}  from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 
 
 export default class login extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       name: "",
       email: "",
-      url: ""
+      url: "",
     };
+    
   }
-  responseGoogle = response => {
-    console.log(response);
-    this.setState({
-      name: response.profileObj.name,
-      email: response.profileObj.email,
-      imageUrl: response.profileObj.imageUrl
-    });
-  };
-  responseFacebook = response => {
-    console.log(response);
-  };
-  responseErrorFacebook = error => {
-    console.log(error);
-  };
+
+  
+  // responseGoogle = response => {
+  //   console.log(response);
+  //   this.setState({
+  //     name: response.profileObj.name,
+  //     email: response.profileObj.email,
+  //     imageUrl: response.profileObj.imageUrl,
+  //   });
+  //   // useNavigate('/MusicPlayer')
+  // };
+
 
   render() {
     return (
@@ -51,12 +51,13 @@ export default class login extends Component {
       
         <GoogleLogin className="googlebtn"
           onClick={()=> console.log('true')}
-          onSuccess={this.responseGoogle}
+          onSuccess={this.MusicPlayer}
           onFailure={this.responseGoogle}
           cookiePolicy={"single_host_origin"}
           clientId="117795676055-ikd32d0p670hh3f6aso8q04nedbc7kpb.apps.googleusercontent.com"></GoogleLogin>
 
-        <GoogleLogin className="btn1" 
+        <GoogleLogin className="btn1 display:none" 
+        onClick={()=> console.log('true')}
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
           cookiePolicy={"single_host_origin"}
@@ -68,3 +69,4 @@ export default class login extends Component {
     );
   }
 }
+
