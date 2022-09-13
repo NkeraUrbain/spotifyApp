@@ -7,28 +7,30 @@ import { GoogleLogin } from "react-google-login";
 export default class login extends Component {
   constructor(props) {
     super(props);
-    
     this.state = {
       name: "",
       email: "",
       url: "",
+      
     };
-    
+  
   }
+  
 
   
-  // responseGoogle = response => {
-  //   console.log(response);
-  //   this.setState({
-  //     name: response.profileObj.name,
-  //     email: response.profileObj.email,
-  //     imageUrl: response.profileObj.imageUrl,
-  //   });
-  //   // useNavigate('/MusicPlayer')
-  // };
+  responseGoogle = response => {
+    console.log(response);
+    this.setState({
+      name: response.profileObj.name,
+      email: response.profileObj.email,
+      imageUrl: response.profileObj.imageUrl,
+    });
+    // useNavigate('/MusicPlayer')
+  };
 
 
   render() {
+    
     return (
       <>
         <Form className="login-form">
@@ -45,18 +47,20 @@ export default class login extends Component {
           <Label>Password</Label>
           <input type="password" placeholder="Password" />
 
-          <Button className="btn-lg btn-block">Log in</Button>
+          <Button className="btn-lg btn-block ">Log in</Button>
           <div className="text-center pt-3">Or</div>
           
       
-        <GoogleLogin className="googlebtn"
+        <GoogleLogin className="googlebtn d-none"
+       
           onClick={()=> console.log('true')}
           onSuccess={this.MusicPlayer}
           onFailure={this.responseGoogle}
           cookiePolicy={"single_host_origin"}
           clientId="117795676055-ikd32d0p670hh3f6aso8q04nedbc7kpb.apps.googleusercontent.com"></GoogleLogin>
 
-        <GoogleLogin className="btn1 display:none" 
+        <GoogleLogin className="btn1 "
+      
         onClick={()=> console.log('true')}
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}

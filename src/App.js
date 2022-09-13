@@ -13,7 +13,7 @@ class App extends Component {
           <Route path="/sign-up" exact component={Signup} />
           <Route path="/home" exact component={Signup} />
           <Route path="/MusicPlayer" exact component={MusicPlayer} />
-          <Login/>
+          {/* <Login/> */}
         </div>
       </Router>
     );

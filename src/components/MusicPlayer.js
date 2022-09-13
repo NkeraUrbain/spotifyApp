@@ -75,16 +75,28 @@ return (
         </Container>
 
           <Container>
-            <Row className="mx-2 d-flex bg-dark" row row-cols-4>
+          <iframe className style={{
+              // width: "80%",
+              // paddingLeft: 100,
+              // paddingRight: 100,
+              // paddingTop: 30,
+              // paddingBottom: 30,
+              
+            }}
+            src={'https://open.spotify.com/embed/album/'+albumID+'?utm_source=generator'} width='100%' height="200"
+            justify-content-center>
+
+            </iframe>
+            <Row className="d-flex bg-dark justify-content-center" row row-cols-4>
               {albums.map((album,i)=>{
                 console.log(album);
                 return <Card onClick={()=>{
                   setAlbumID(album.id)
-                }} style={{ width: '22rem', margin: '5px' }}>
+                }} style={{ width: '20rem', height: '20rem',margin: '5px'}}>
                 <Card.Img src={album.images[0].url
-} className="cardImg col-3"  />
+} className="cardImg"/>
                 <Card.Body>
-                  <Card.Title className="font-weight-bold">{album.name}</Card.Title>
+                  <Card.Title className="font-weight-bold text-center">{album.name}</Card.Title>
    
                 </Card.Body>
               </Card>
@@ -92,11 +104,7 @@ return (
                 )}
           
             </Row>         
-            <iframe
-            src={'https://open.spotify.com/embed/album/'+albumID+'?utm_source=generator'} width='100%' height="380"
-            >
-
-            </iframe>
+           
           </Container>
             
     </div>
